@@ -37,3 +37,10 @@ X_train_scaled = scaler.fit_transform(X_train)
 model = LogisticRegression(solver='saga', max_iter=5000)
 model.fit(X_train_scaled, Y_train)
 
+X_test = test_df.copy()
+X_test = imputer.transform(X_test)
+X_test_scaled = scaler.transform(X_test)
+
+Y_test_pred = model.predict(X_test_scaled)
+
+print(Y_test_pred)
